@@ -51,3 +51,43 @@ c = Point(x2, y2)
 f = Point(x3, y3)
 z = Triangle(a, b, c, f)
 print(z.square(), z.perimeter(), z.location())
+
+
+class Circle:
+    def __init__(self, center,  radius):
+        self.center = center
+        self.radius = radius
+
+
+    def length_circle(self):
+        length_circle = 2 * math.pi * self.radius
+        print('length')
+        return length_circle
+
+    def square_circle(self):
+        square_circle = math.pi * self.radius**2
+        print('sq')
+        print(self.center.x)
+        return square_circle
+    def location_circle(self,other):
+        print('loc')
+        if (other.x - self.center.x)**2 + (other.y - self.center.y) < self.radius**2:
+            return 'in circle'
+        else:
+            return 'out circle'
+    def intersection(self, other):
+        print('hello frov inter')
+        if self.center.length(other.center) > 2 * self.radius:
+            return 'out circle 2'
+        else:
+            return 'in circle 2'
+
+center_x,center_y,  radius,center_x2, center_y2, radius_2, center_x1, center_y1 = [int(x) for x in input().split()]
+center = Point(center_x, center_y)
+center_our = Point(center_x1, center_y1)
+center_2 = Point(center_x2, center_y2)
+t = Circle(center, radius)
+p = Circle(center_2, radius_2)
+print(t.length_circle(), t.square_circle(), t.location_circle(center_our), t.intersection(p))
+
+#t.location_circle(center_our)
