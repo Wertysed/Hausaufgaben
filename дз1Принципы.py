@@ -17,6 +17,9 @@ class Point:
     def __repr__(self):
         return str(self)
 
+    def __str__(self):
+        return f'Point<x={self.x}, y={self.y}>'
+
 
 class Vector(Point):
     def length(self):
@@ -41,8 +44,9 @@ class Vector(Point):
         return f'Vector x={self.x}, y={self.y}'
 
 
-x, y, x1, y1, number = [int(x) for x in input().split()]
+
 if __name__ == '__main__':
+    x, y, x1, y1, number = [int(x) for x in input().split()]
     first_vector = Vector(x, y)
     second_vector = Vector(x1, y1)
     print(first_vector.length(), second_vector.length())
