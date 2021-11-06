@@ -49,7 +49,7 @@ car = Car(Point(0, 0), 100, 0.5)
 car.direction = Vector(22, 22)
 car.is_recording = True
 car.gas_per_unit = 2
-
+print(car.gas_per_unit)
 car.movement(10)
 print(car.path)
 print(car.gas)
