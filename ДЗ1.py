@@ -6,7 +6,9 @@ class Driver:
         self.all = sum(time_one)
 
     def __lt__(self, other):
-        return isinstance(other, Driver) and self.all < other.all
+        if isinstance(other, Driver):
+            return self.all < other.all
+        raise ValueError
 
 
 n , m = [int(x) for x in input().split()]
