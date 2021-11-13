@@ -18,7 +18,7 @@ class Point:
         return str(self)
 
     def __str__(self):
-        return f'Point<x={self.x}, y={self.y}>'
+        return f'Point x = {self.x}, y = {self.y}'
 
 
 class Vector(Point):
@@ -28,20 +28,23 @@ class Vector(Point):
     def __add__(self, other):
         if isinstance(other, Vector):
             return Vector(self.x + other.x, self.y + other.y)
+        raise ValueError
 
     def __sub__(self, other):
         if isinstance(other, Vector):
             return Vector(self.x - other.x, self.y - other.y)
+        raise ValueError
 
     def __mul__(self, other):
         if isinstance(other, int):
             return Vector(self.x * other, self.y * other)
+        raise ValueError
 
     # def scalar_product(self, other, angle):
     #    scalar_product = self.length() * other.length() * math.cos(angle)
     #   return scalar_product
     def __repr__(self):
-        return f'Vector x={self.x}, y={self.y}'
+        return f'Vector x = {self.x}, y = {self.y}'
 
 
 

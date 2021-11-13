@@ -41,15 +41,16 @@ class Car(Vehicle):
                 if self.is_recording:
                     self.path.append(self.position)
             else:
-                print('топлива не хватит, заправимся? курс топлива', self.__gas_per_unit)
+                print('топлива не хватит, заправимся? курс топлива', self.__gas_per_unit, 'минимум = ', (self.__gas_usage() * time) - (self.__gas_usage() * i),
+                      'а у вас', self.gas)
                 self.gas += int(input())
 
 
 car = Car(Point(0, 0), 100, 0.5)
 car.direction = Vector(22, 22)
 car.is_recording = True
-car.gas_per_unit = 2
-print(car.gas_per_unit)
+car.gas_per_unit = 0.5
+print(car.gas_per_unit, car.gas)
 car.movement(10)
 print(car.path)
 print(car.gas)
